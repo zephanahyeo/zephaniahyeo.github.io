@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+
+body {
+  font-family: "Montserrat";
+  background-size: cover;
+  text-align: center;
+}
+
+h1 {
+	font-size: 800%;
+	font-family: "Merriweather";
+}
+
+h2 {
+	font-size: 300%;
+	font-family: "Merriweather";
+}
+
+h3 {
+	font-size: 250%;
+	font-family: "Montserrat";
+	margin-bottom:20px;
+}
+
+h4 {
+	font-size: 150%;
+}
+
+h5{
+	font-size: 120%;
+	font-style: italic;
+}
+
+img {
+   max-width:100%;
+   max-height:100%;
+   text-align: center
+
+}
+
+p {
+	  line-height: 1.5 !important;
+	  font-size: 20px;
+}
+
+/* Container holding the image and the text */
+.container {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  left: 100px;
+  bottom: -30px;
+  background-color: white;
+  color: black;
+  opacity: 0.9;
+}
+
+
+.grayback {
+	background-color: #f2f2f2;
+	color: black;
+}
+
+.block {
+	margin: 100px;
+}
+
+.double-block {
+	margin: 150px;
+}
+
+.restaurant-info {
+	height: 50vh;
+}
+
+.reservation {
+	height: 25vh;
+}
+
+/* add a deli pattern background*/
+.reservation-form-container {
+	position: relative;
+	height: 100%;
+	background: 
+	background-size: cover;
+	background-position: center;
+}
+
+.reservation-form {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.restaurant-locator {
+	height: 70vh;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+
+
