@@ -40,10 +40,15 @@ $('.reservation-day li').on('click', function(){
 // saves the "name" field and uploads to Firebase on "make reservation" button press
 $('.reservation-button').on('click', function(e){
 	e.preventDefault();
-	//retrieving the name from text input field
-	reservationData.name = $('.reservation-name').val();
-	//uploading to Firebase
-	ref.push(reservationData);
+//checking to see if the name and date have been entered
+  if ((reservationData.day !== null) && (reservationData.name !== null)) {  
+//retrieving the name from text input field
+    reservationData.name = $('.reservation-name').val();
+//uploading to Firebase
+    ref.push(reservationData);
+  } else {
+    alert('Please enter a name and a date.');
+  }
 });
 
 
@@ -56,6 +61,9 @@ ref.on("value", function(results) {
    	var resData = results.val();
    	var data = [];
 
+    //clears list
+    $('#reservation-list').empty();
+
    	for (var item in resData){
    		var context = {
    			name: resData[item].name,
@@ -66,6 +74,7 @@ ref.on("value", function(results) {
    		var resListData = template(context);
    		data.push(resListData);
    	}
+
    	for (var i in data) {
    		$('#reservation-list').append(data[i]);
    	}
@@ -170,7 +179,7 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: {lat: 24.0179867, lng: 121.6377793},
     map: map,
-    title: 'Monks Café'
+    title: 'Cat & Weasel'
   });
 }
 
@@ -178,9 +187,11 @@ function initMap() {
 }
 
 //section 3: check time
-{
+
 var today = new Date();
-var xmas = new Date("December 25")
-console.log(today.getHours());
-console.log(today.getDay());
+
+if ((today.getHours() >= 12) && (today.getDay() === 0 || today.getDay() >= 2)) {
+  $('#open-status').text("hours: 12 pm to 12 am Tuesdays through Sundays (open now!)");
+} else {
+  $('#open-status').text("hours: 12 pm to 12 am Tuesdays through Sundays (be back after lunch)");
 }
