@@ -26,7 +26,7 @@ var ref = firebase.database().ref('reservations');
 
 // reservation data saved here
 var reservationData = {
-	name: null,
+	name: "",
 	day: null
 };
 
