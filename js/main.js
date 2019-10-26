@@ -40,13 +40,13 @@ $('.reservation-day li').on('click', function(){
 // saves the "name" field and uploads to Firebase on "make reservation" button press
 $('.reservation-button').on('click', function(e){
 	e.preventDefault();
-//checking to see if the name and date have been entered
-  if ((reservationData.day !== null) && (reservationData.name !== null)) {  
 //retrieving the name from text input field
-    reservationData.name = $('.reservation-name').val();
+    reservationData.name = $('.reservation-name').val();   
+//checking to see if the name and date have been entered
+    if ((reservationData.day !== null) && (reservationData.name !== "")) {  
 //uploading to Firebase
-    ref.push(reservationData);
-  } else {
+      ref.push(reservationData);
+    } else {
     alert('Please enter a name and a date.');
   }
 });
